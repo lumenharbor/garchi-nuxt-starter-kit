@@ -1,6 +1,6 @@
 <template>
   <div :class="['grid gap-4 grid-cols-1 md:grid-cols-2', lgColsClass]" v-bind="$attrs">
-    <GarchiComponent v-for="section in children" :key="section.id" :section="section" />
+    <GarchiComponent v-for="section in subsections" :key="section.id" :section="section" />
   </div>
 </template>
 
@@ -9,10 +9,10 @@ import type { GarchiSection } from '@garchicms/garchi-node-sdk'
 
 const props = withDefaults(defineProps<{
   cols?: number | string
-  children?: GarchiSection[]
+  subsections?: GarchiSection[]
 }>(), {
   cols: 3,
-  children: () => []
+  subsections: () => []
 })
 
 const lgColsMap: Record<number, string> = {
